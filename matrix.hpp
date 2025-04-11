@@ -54,6 +54,13 @@ public:
             sum += mainDiagonal ? data[i][i] : data[i][size - 1 - i];
         return sum;
     }
+
+    // ✅ This is the missing method the tests need
+    T get_value(int row, int col) const {
+        if (row < 0 || row >= size || col < 0 || col >= size)
+            throw std::out_of_range("Index out of range");
+        return data[row][col];
+    }
 };
 
 #endif
